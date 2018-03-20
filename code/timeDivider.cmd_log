@@ -1,0 +1,4 @@
+vhdtdtfi -lib work G:/Lab5/timedivider.v -lang verilog -prj Lab5 -o timeDivider.spl -module timeDivider -template C:/Xilinx/13.4/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e timeDivider.spl G:/Lab5/timeDivider.sym 
+vhdtdtfi -lib work G:/Lab5/timedivider.v -lang verilog -prj Lab5 -o timeDivider.spl -module timeDivider -template C:/Xilinx/13.4/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e timeDivider.spl G:/Lab5/timeDivider.sym 

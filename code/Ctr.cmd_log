@@ -1,0 +1,3 @@
+vhdtdtfi -lang verilog -prj Lab5 -o G:/Lab5/Ctr.tfi -lib work G:/Lab5//Ctr.v -module Ctr -template C:/Xilinx/13.4/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+vhdtdtfi -lib work G:/Lab5/Ctr.v -lang verilog -prj Lab5 -o Ctr.spl -module Ctr -template C:/Xilinx/13.4/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e Ctr.spl G:/Lab5/Ctr.sym 

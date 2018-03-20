@@ -1,0 +1,9 @@
+MO data_memory NULL data_memory.v vlg4A/data__memory.bin 1511935866
+MO inst_memory NULL inst_memory.v vlg3E/inst__memory.bin 1511935866
+MO AluCtr NULL aluctr.v vlg03/_alu_ctr.bin 1511935866
+MO Ctr NULL Ctr.v vlg41/_ctr.bin 1511935866
+MO Top NULL top.v vlg4F/_top.bin 1511935866
+MO timeDivider NULL timedivider.v vlg7A/time_divider.bin 1511935866
+MO register NULL register.v vlg29/register.bin 1511935866
+MO Alu NULL alu.v vlg6A/_alu.bin 1511935866
+MO signext NULL singext.v vlg1E/signext.bin 1511935866

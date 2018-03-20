@@ -1,0 +1,4 @@
+vhdtdtfi -lib work G:/Lab5/data_memory.v -lang verilog -prj Lab5 -o data_memory.spl -module data_memory -template C:/Xilinx/13.4/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e data_memory.spl G:/Lab5/data_memory.sym 
+vhdtdtfi -lib work G:/Lab5/data_memory.v -lang verilog -prj Lab5 -o data_memory.spl -module data_memory -template C:/Xilinx/13.4/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e data_memory.spl G:/Lab5/data_memory.sym 

@@ -1,0 +1,8 @@
+[Inputs]
+clockIn
+[Outputs]
+clockOut
+[BiDir]
+[ATTRIBUTES]
+VeriModel timeDivider
+

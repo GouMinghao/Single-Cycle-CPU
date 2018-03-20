@@ -1,0 +1,2 @@
+vhdtdtfi -lib work G:/Lab5/register.v -lang verilog -prj Lab5 -o register.spl -module register -template C:/Xilinx/13.4/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e register.spl G:/Lab5/register.sym 

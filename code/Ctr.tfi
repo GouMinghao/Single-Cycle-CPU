@@ -1,0 +1,19 @@
+
+
+
+// Instantiate the module
+Ctr instance_name (
+    .reset(reset), 
+    .opCode(opCode), 
+    .regDst(regDst), 
+    .aluSrc(aluSrc), 
+    .memToReg(memToReg), 
+    .regWrite(regWrite), 
+    .memRead(memRead), 
+    .memWrite(memWrite), 
+    .branch(branch), 
+    .aluOp(aluOp), 
+    .jump(jump)
+    );
+
+

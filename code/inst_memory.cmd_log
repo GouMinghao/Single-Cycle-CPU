@@ -1,0 +1,2 @@
+vhdtdtfi -lib work G:/Lab5/inst_memory.v -lang verilog -prj Lab5 -o inst_memory.spl -module inst_memory -template C:/Xilinx/13.4/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e inst_memory.spl G:/Lab5/inst_memory.sym 

@@ -1,0 +1,17 @@
+[Inputs]
+reset
+=opCode[5:0]=
+[Outputs]
+regDst
+aluSrc
+memToReg
+regWrite
+memRead
+memWrite
+branch
+jump
+=aluOp[1:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel Ctr
+

@@ -1,0 +1,11 @@
+
+
+
+// Instantiate the module
+Top instance_name (
+    .mainClock(mainClock), 
+    .SWITCH(SWITCH), 
+    .LED(LED)
+    );
+
+

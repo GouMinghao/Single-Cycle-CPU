@@ -1,0 +1,9 @@
+[Inputs]
+reset
+=readAddress[31:0]=
+[Outputs]
+=inst[31:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel inst_memory
+

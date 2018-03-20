@@ -1,0 +1,37 @@
+xst -intstyle ise -ifn "G:/Lab5/Top.xst" -ofn "G:/Lab5/Top.syr" 
+xst -intstyle ise -ifn "G:/Lab5/Top.xst" -ofn "G:/Lab5/Top.syr" 
+xst -intstyle ise -ifn "G:/Lab5/Top.xst" -ofn "G:/Lab5/Top.syr" 
+xst -intstyle ise -ifn "G:/Lab5/Top.xst" -ofn "G:/Lab5/Top.syr" 
+xst -intstyle ise -ifn "G:/Lab5/Top.xst" -ofn "G:/Lab5/Top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s500e-fg320-4 Top.ngc Top.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s500e-fg320-4 Top.ngc Top.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Top_map.ncd Top.ngd Top.pcf 
+netgen -intstyle ise -insert_glbl true -w -dir netgen/synthesis -ofmt verilog -sim Top.ngc Top_synthesis.v 
+vhdtdtfi -lib work G:/Lab5/top.v -lang verilog -prj Lab5 -o Top.spl -module Top -template C:/Xilinx/13.4/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e Top.spl G:/Lab5/Top.sym 
+vhdtdtfi -lang verilog -prj Lab5 -o G:/Lab5/Top.tfi -lib work G:/Lab5//top.v -module Top -template C:/Xilinx/13.4/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Top_map.ncd Top.ngd Top.pcf 
+vhdtdtfi -lib work G:/Lab5/top.v -lang verilog -prj Lab5 -o Top.spl -module Top -template C:/Xilinx/13.4/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e Top.spl G:/Lab5/Top.sym 
+vhdtdtfi -lib work G:/Lab5/top.v -lang verilog -prj Lab5 -o Top.spl -module Top -template C:/Xilinx/13.4/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e Top.spl G:/Lab5/Top.sym 
+vhdtdtfi -lib work G:/Lab5/top.v -lang verilog -prj Lab5 -o Top.spl -module Top -template C:/Xilinx/13.4/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e Top.spl G:/Lab5/Top.sym 
+vhdtdtfi -lib work G:/Lab5/top.v -lang verilog -prj Lab5 -o Top.spl -module Top -template C:/Xilinx/13.4/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e Top.spl G:/Lab5/Top.sym 
+xst -intstyle ise -ifn "G:/Lab5/Top.xst" -ofn "G:/Lab5/Top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s500e-fg320-4 Top.ngc Top.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Top_map.ncd Top.ngd Top.pcf 
+netgen -intstyle ise -insert_glbl true -w -dir netgen/synthesis -ofmt verilog -sim Top.ngc Top_synthesis.v 
+xst -intstyle ise -ifn "G:/Lab5/Top.xst" -ofn "G:/Lab5/Top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s500e-fg320-4 Top.ngc Top.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Top_map.ncd Top.ngd Top.pcf 
+par -w -intstyle ise -ol high -t 1 Top_map.ncd Top.ncd Top.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Top.twx Top.ncd -o Top.twr Top.pcf -ucf top.ucf 
+bitgen -intstyle ise -f Top.ut Top.ncd 
+xst -intstyle ise -ifn "G:/Lab5/Top.xst" -ofn "G:/Lab5/Top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s500e-fg320-4 Top.ngc Top.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Top_map.ncd Top.ngd Top.pcf 
+par -w -intstyle ise -ol high -t 1 Top_map.ncd Top.ncd Top.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Top.twx Top.ncd -o Top.twr Top.pcf -ucf top.ucf 
+bitgen -intstyle ise -f Top.ut Top.ncd 

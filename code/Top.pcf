@@ -1,0 +1,22 @@
+//! **************************************************************************
+// Written by: Map O.87xd on Wed Nov 29 14:11:31 2017
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "SWITCH<0>" LOCATE = SITE "L13" LEVEL 1;
+COMP "SWITCH<1>" LOCATE = SITE "L14" LEVEL 1;
+COMP "SWITCH<2>" LOCATE = SITE "H18" LEVEL 1;
+COMP "SWITCH<3>" LOCATE = SITE "N17" LEVEL 1;
+COMP "mainClock" LOCATE = SITE "C9" LEVEL 1;
+COMP "LED<0>" LOCATE = SITE "F12" LEVEL 1;
+COMP "LED<1>" LOCATE = SITE "E12" LEVEL 1;
+COMP "LED<2>" LOCATE = SITE "E11" LEVEL 1;
+COMP "LED<3>" LOCATE = SITE "F11" LEVEL 1;
+COMP "LED<4>" LOCATE = SITE "C11" LEVEL 1;
+COMP "LED<5>" LOCATE = SITE "D11" LEVEL 1;
+COMP "LED<6>" LOCATE = SITE "E9" LEVEL 1;
+COMP "LED<7>" LOCATE = SITE "F9" LEVEL 1;
+NET "mainClock_BUFGP/IBUFG" BEL "mainClock_BUFGP/BUFG.GCLKMUX"
+        USELOCALCONNECT;
+SCHEMATIC END;
+

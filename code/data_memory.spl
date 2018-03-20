@@ -1,0 +1,13 @@
+[Inputs]
+clock_in
+reset
+memWrite
+memRead
+=address[31:0]=
+=writeData[31:0]=
+[Outputs]
+=readData[31:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel data_memory
+

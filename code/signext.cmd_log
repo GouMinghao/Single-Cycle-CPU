@@ -1,0 +1,2 @@
+vhdtdtfi -lib work G:/Lab5/singext.v -lang verilog -prj Lab5 -o signext.spl -module signext -template C:/Xilinx/13.4/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e signext.spl G:/Lab5/signext.sym 

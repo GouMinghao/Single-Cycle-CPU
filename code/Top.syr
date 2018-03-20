@@ -1,0 +1,1640 @@
+Release 13.4 - xst O.87xd (nt)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.25 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.26 secs
+ 
+--> Reading design: Top.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "Top.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "Top"
+Output Format                      : NGC
+Target Device                      : xc3s500e-4-fg320
+
+---- Source Options
+Top Module Name                    : Top
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "timedivider.v" in library work
+Compiling verilog file "singext.v" in library work
+Module <timeDivider> compiled
+Compiling verilog file "register.v" in library work
+Module <signext> compiled
+Compiling verilog file "inst_memory.v" in library work
+Module <register> compiled
+Compiling verilog file "data_memory.v" in library work
+Module <inst_memory> compiled
+Compiling verilog file "Ctr.v" in library work
+Module <data_memory> compiled
+Compiling verilog file "aluctr.v" in library work
+Module <Ctr> compiled
+Compiling verilog file "alu.v" in library work
+Module <AluCtr> compiled
+Compiling verilog file "top.v" in library work
+Module <Alu> compiled
+Module <Top> compiled
+No errors in compilation
+Analysis of file <"Top.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <Top> in library <work>.
+
+Analyzing hierarchy for module <timeDivider> in library <work>.
+
+Analyzing hierarchy for module <Ctr> in library <work>.
+
+Analyzing hierarchy for module <Alu> in library <work>.
+
+Analyzing hierarchy for module <AluCtr> in library <work>.
+
+Analyzing hierarchy for module <data_memory> in library <work>.
+
+Analyzing hierarchy for module <register> in library <work>.
+
+Analyzing hierarchy for module <signext> in library <work>.
+
+Analyzing hierarchy for module <inst_memory> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <Top>.
+WARNING:Xst:905 - "top.v" line 111: One or more signals are missing in the sensitivity list of always block. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <SWITCH>, <REG1>, <REG2>, <REG3>, <REG4>, <INST>, <PC>
+Module <Top> is correct for synthesis.
+ 
+Analyzing module <timeDivider> in library <work>.
+Module <timeDivider> is correct for synthesis.
+ 
+Analyzing module <Ctr> in library <work>.
+WARNING:Xst:883 - "Ctr.v" line 85: Ignored duplicate item in case statement. 
+Module <Ctr> is correct for synthesis.
+ 
+Analyzing module <Alu> in library <work>.
+Module <Alu> is correct for synthesis.
+ 
+Analyzing module <AluCtr> in library <work>.
+Module <AluCtr> is correct for synthesis.
+ 
+Analyzing module <data_memory> in library <work>.
+INFO:Xst:1607 - Contents of array <memFile> may be accessed with an index that does not cover the full array size.
+WARNING:Xst:905 - "data_memory.v" line 36: One or more signals are missing in the sensitivity list of always block. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <memFile>
+Module <data_memory> is correct for synthesis.
+ 
+Analyzing module <register> in library <work>.
+INFO:Xst:1433 - Contents of array <regFile> may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
+INFO:Xst:1433 - Contents of array <regFile> may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
+WARNING:Xst:905 - "register.v" line 48: One or more signals are missing in the sensitivity list of always block. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <regFile>
+Module <register> is correct for synthesis.
+ 
+Analyzing module <signext> in library <work>.
+Module <signext> is correct for synthesis.
+ 
+Analyzing module <inst_memory> in library <work>.
+INFO:Xst:1607 - Contents of array <instMemFile> may be accessed with an index that does not cover the full array size.
+WARNING:Xst:905 - "inst_memory.v" line 30: One or more signals are missing in the sensitivity list of always block. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <instMemFile>
+Module <inst_memory> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <timeDivider>.
+    Related source file is "timedivider.v".
+    Found 1-bit register for signal <clockOut>.
+    Found 25-bit up counter for signal <buffer>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 D-type flip-flop(s).
+Unit <timeDivider> synthesized.
+
+
+Synthesizing Unit <Ctr>.
+    Related source file is "Ctr.v".
+Unit <Ctr> synthesized.
+
+
+Synthesizing Unit <Alu>.
+    Related source file is "alu.v".
+WARNING:Xst:737 - Found 1-bit latch for signal <zero>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 32-bit latch for signal <aluRes>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+    Found 32-bit adder for signal <aluRes$addsub0000> created at line 20.
+    Found 32-bit comparator greatequal for signal <aluRes$cmp_ge0000> created at line 43.
+    Found 32-bit comparator less for signal <aluRes$cmp_lt0000> created at line 43.
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred   2 Comparator(s).
+Unit <Alu> synthesized.
+
+
+Synthesizing Unit <AluCtr>.
+    Related source file is "aluctr.v".
+WARNING:Xst:737 - Found 4-bit latch for signal <aluCtr>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+Unit <AluCtr> synthesized.
+
+
+Synthesizing Unit <data_memory>.
+    Related source file is "data_memory.v".
+WARNING:Xst:647 - Input <address<1:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:737 - Found 32-bit latch for signal <readData>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Found 32-bit 16-to-1 multiplexer for signal <$varindex0000> created at line 40.
+    Found 512-bit register for signal <memFile>.
+INFO:Xst:738 - HDL ADVISOR - 512 flip-flops were inferred for signal <memFile>. You may be trying to describe a RAM in a way that is incompatible with block and distributed RAM resources available on Xilinx devices, or with a specific template that is not supported. Please review the Xilinx resources documentation and the XST user manual for coding guidelines. Taking advantage of RAM resources will lead to improved device usage and reduced synthesis time.
+    Summary:
+	inferred 512 D-type flip-flop(s).
+	inferred  32 Multiplexer(s).
+Unit <data_memory> synthesized.
+
+
+Synthesizing Unit <register>.
+    Related source file is "register.v".
+WARNING:Xst:647 - Input <writeReg<4>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <readReg1<25>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <readReg2<20>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 32-bit 16-to-1 multiplexer for signal <$varindex0000> created at line 56.
+    Found 32-bit 16-to-1 multiplexer for signal <$varindex0001> created at line 57.
+    Found 512-bit register for signal <regFile>.
+INFO:Xst:738 - HDL ADVISOR - 512 flip-flops were inferred for signal <regFile>. You may be trying to describe a RAM in a way that is incompatible with block and distributed RAM resources available on Xilinx devices, or with a specific template that is not supported. Please review the Xilinx resources documentation and the XST user manual for coding guidelines. Taking advantage of RAM resources will lead to improved device usage and reduced synthesis time.
+    Summary:
+	inferred 512 D-type flip-flop(s).
+	inferred  64 Multiplexer(s).
+Unit <register> synthesized.
+
+
+Synthesizing Unit <signext>.
+    Related source file is "singext.v".
+    Found 32-bit 4-to-1 multiplexer for signal <data>.
+    Summary:
+	inferred  32 Multiplexer(s).
+Unit <signext> synthesized.
+
+
+Synthesizing Unit <inst_memory>.
+    Related source file is "inst_memory.v".
+WARNING:Xst:647 - Input <readAddress<1:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:1781 - Signal <instMemFile> is used but never assigned. Tied to default value.
+    Found 16x32-bit ROM for signal <$varindex0000> created at line 34.
+    Summary:
+	inferred   1 ROM(s).
+Unit <inst_memory> synthesized.
+
+
+Synthesizing Unit <Top>.
+    Related source file is "top.v".
+    Found 32-bit adder carry out for signal <add0000$addsub0000> created at line 107.
+    Found 32-bit adder for signal <OUT4$add0000> created at line 106.
+    Found 32-bit adder for signal <OUT4$addsub0000> created at line 106.
+    Found 32-bit adder for signal <OUT4$addsub0001> created at line 106.
+    Found 32-bit register for signal <PC>.
+    Found 32-bit 4-to-1 multiplexer for signal <PC$mux0000>.
+    Summary:
+	inferred  32 D-type flip-flop(s).
+	inferred   4 Adder/Subtractor(s).
+	inferred  32 Multiplexer(s).
+Unit <Top> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 1
+ 16x32-bit ROM                                         : 1
+# Adders/Subtractors                                   : 6
+ 32-bit adder                                          : 4
+ 32-bit adder carry out                                : 1
+ 32-bit subtractor                                     : 1
+# Counters                                             : 1
+ 25-bit up counter                                     : 1
+# Registers                                            : 34
+ 1-bit register                                        : 1
+ 32-bit register                                       : 33
+# Latches                                              : 4
+ 1-bit latch                                           : 1
+ 32-bit latch                                          : 2
+ 4-bit latch                                           : 1
+# Comparators                                          : 2
+ 32-bit comparator greatequal                          : 1
+ 32-bit comparator less                                : 1
+# Multiplexers                                         : 5
+ 32-bit 16-to-1 multiplexer                            : 3
+ 32-bit 4-to-1 multiplexer                             : 2
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <3>. This FF/Latch will be trimmed during the optimization process.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 1
+ 16x32-bit ROM                                         : 1
+# Adders/Subtractors                                   : 6
+ 32-bit adder                                          : 4
+ 32-bit adder carry out                                : 1
+ 32-bit subtractor                                     : 1
+# Counters                                             : 1
+ 25-bit up counter                                     : 1
+# Registers                                            : 1057
+ Flip-Flops                                            : 1057
+# Latches                                              : 4
+ 1-bit latch                                           : 1
+ 32-bit latch                                          : 2
+ 4-bit latch                                           : 1
+# Comparators                                          : 2
+ 32-bit comparator greatequal                          : 1
+ 32-bit comparator less                                : 1
+# Multiplexers                                         : 67
+ 1-bit 16-to-1 multiplexer                             : 64
+ 32-bit 16-to-1 multiplexer                            : 1
+ 32-bit 4-to-1 multiplexer                             : 2
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1710 - FF/Latch <aluCtr_3> (without init value) has a constant value of 0 in block <AluCtr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <PC_8> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <PC_9> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <PC_10> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <PC_11> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <PC_12> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <PC_13> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <PC_14> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <PC_15> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <PC_16> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <PC_17> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <PC_18> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <PC_19> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <PC_20> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <PC_21> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <PC_22> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <PC_23> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <PC_24> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <PC_25> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <PC_26> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <PC_27> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <PC_28> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <PC_29> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <PC_30> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <PC_31> of sequential type is unconnected in block <Top>.
+
+Optimizing unit <Top> ...
+WARNING:Xst:1293 - FF/Latch <PC_0> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <PC_1> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <PC_0> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <PC_1> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <PC_0> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <PC_1> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <PC_0> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <PC_1> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <register> ...
+
+Optimizing unit <Alu> ...
+
+Optimizing unit <AluCtr> ...
+
+Optimizing unit <data_memory> ...
+WARNING:Xst:1293 - FF/Latch <mainRegister/regFile_9_30> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_9_29> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_9_28> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_9_27> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_9_26> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_9_25> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_9_24> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_9_23> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_9_22> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_9_21> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_9_20> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_9_19> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_9_18> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_9_17> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_9_16> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_9_15> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_9_14> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_9_13> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_9_12> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_9_11> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_9_10> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_9_9> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_9_8> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_9_7> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_9_6> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_9_5> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_9_4> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_9_3> has a constant value of 1 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_9_2> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_9_1> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_9_0> has a constant value of 1 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_11_31> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_10_30> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_10_29> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_10_28> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_10_27> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_10_26> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_10_25> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_10_24> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_10_23> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_10_22> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_10_21> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_10_20> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_10_19> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_10_18> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_10_17> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_10_16> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_10_15> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_10_14> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_10_13> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_10_12> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_10_11> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_10_10> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_10_9> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_10_8> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_10_7> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_10_6> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_10_5> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_10_4> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_10_3> has a constant value of 1 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_10_2> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_10_1> has a constant value of 1 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_10_0> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_9_31> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_8_30> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_8_29> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_8_28> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_8_27> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_8_26> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_8_25> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_8_24> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_8_23> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_8_22> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_8_21> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_8_20> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_8_19> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_8_18> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_8_17> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_8_16> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_8_15> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_8_14> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_8_13> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_8_12> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_8_11> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_8_10> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_8_9> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_8_8> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_8_7> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_8_6> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_8_5> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_8_4> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_8_3> has a constant value of 1 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_8_2> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_8_1> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_8_0> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <mainALuCtr/aluCtr_0> (without init value) has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_11_30> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_11_29> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_11_28> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_11_27> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_11_26> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_11_25> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_11_24> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_11_23> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_11_22> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_11_21> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_11_20> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_11_19> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_11_18> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_11_17> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_11_16> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_11_15> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_11_14> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_11_13> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_11_12> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_11_11> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_11_10> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_11_9> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_11_8> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_11_7> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_11_6> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_11_5> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_11_4> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_11_3> has a constant value of 1 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_11_2> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_11_1> has a constant value of 1 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_11_0> has a constant value of 1 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_8_31> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_14_31> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_14_30> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_14_29> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_14_28> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_14_27> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_14_26> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_14_25> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_14_24> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_14_23> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_14_22> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_14_21> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_14_20> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_14_19> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_14_18> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_14_17> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_14_16> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_14_15> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_14_14> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_14_13> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_14_12> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_14_11> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_14_10> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_14_9> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_14_8> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_14_7> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_14_6> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_14_5> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_14_4> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_14_3> has a constant value of 1 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_14_2> has a constant value of 1 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_14_1> has a constant value of 1 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_14_0> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_15_31> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_15_30> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_15_29> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_15_28> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_15_27> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_15_26> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_15_25> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_15_24> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_15_23> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_15_22> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_15_21> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_15_20> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_15_19> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_15_18> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_15_17> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_15_16> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_15_15> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_15_14> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_15_13> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_15_12> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_15_11> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_15_10> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_15_9> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_15_8> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_15_7> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_15_6> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_15_5> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_15_4> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_15_3> has a constant value of 1 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_15_2> has a constant value of 1 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_15_1> has a constant value of 1 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_15_0> has a constant value of 1 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_12_30> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_12_29> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_12_28> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_12_27> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_12_26> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_12_25> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_12_24> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_12_23> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_12_22> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_12_21> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_12_20> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_12_19> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_12_18> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_12_17> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_12_16> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_12_15> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_12_14> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_12_13> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_12_12> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_12_11> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_12_10> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_12_9> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_12_8> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_12_7> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_12_6> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_12_5> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_12_4> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_12_3> has a constant value of 1 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_12_2> has a constant value of 1 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_12_1> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_12_0> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_10_31> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_13_31> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_13_30> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_13_29> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_13_28> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_13_27> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_13_26> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_13_25> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_13_24> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_13_23> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_13_22> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_13_21> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_13_20> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_13_19> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_13_18> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_13_17> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_13_16> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_12_31> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_13_0> has a constant value of 1 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_13_1> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_13_2> has a constant value of 1 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_13_3> has a constant value of 1 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_13_4> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_13_5> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_13_6> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_13_7> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_13_8> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_13_9> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_13_10> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_13_11> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_13_12> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_13_13> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_13_14> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mainRegister/regFile_13_15> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <mainAlu/zero> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_7_31> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_7_30> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_7_29> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_7_28> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_7_27> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_7_26> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_7_25> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_7_24> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_7_23> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_7_22> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_7_21> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_7_20> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_7_19> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_7_18> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_7_17> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_7_16> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_7_15> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_7_14> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_7_13> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_7_12> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_7_11> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_7_10> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_7_9> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_7_8> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_6_31> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_6_30> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_6_29> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_6_28> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_6_27> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_6_26> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_6_25> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_6_24> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_6_23> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_6_22> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_6_21> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_6_20> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_6_19> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_6_18> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_6_17> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_6_16> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_6_15> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_6_14> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_6_13> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_6_12> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_6_11> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_6_10> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_6_9> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_6_8> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_5_31> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_5_30> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_5_29> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_5_28> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_5_27> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_5_26> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_5_25> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_5_24> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_5_23> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_5_22> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_5_21> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_5_20> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_5_19> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_5_18> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_5_17> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_5_16> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_5_15> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_5_14> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_5_13> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_5_12> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_5_11> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_5_10> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_5_9> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_5_8> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_4_31> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_4_30> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_4_29> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_4_28> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_4_27> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_4_26> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_4_25> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_4_24> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_4_23> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_4_22> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_4_21> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_4_20> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_4_19> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_4_18> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_4_17> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_4_16> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_4_15> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_4_14> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_4_13> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_4_12> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_4_11> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_4_10> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_4_9> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_4_8> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_3_31> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_3_30> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_3_29> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_3_28> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_3_27> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_3_26> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_3_25> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_3_24> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_3_23> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_3_22> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_3_21> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_3_20> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_3_19> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_3_18> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_3_17> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_3_16> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_3_15> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_3_14> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_3_13> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_3_12> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_3_11> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_3_10> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_3_9> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_3_8> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_1_31> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_1_30> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_1_29> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_1_28> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_1_27> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_1_26> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_1_25> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_1_24> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_1_23> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_1_22> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_1_21> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_1_20> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_1_19> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_1_18> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_1_17> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_1_16> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_1_15> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_1_14> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_1_13> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_1_12> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_1_11> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_1_10> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_1_9> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_1_8> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_0_31> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_0_30> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_0_29> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_0_28> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_0_27> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_0_26> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_0_25> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_0_24> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_0_23> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_0_22> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_0_21> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_0_20> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_0_19> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_0_18> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_0_17> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_0_16> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_0_15> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_0_14> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_0_13> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_0_12> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_0_11> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_0_10> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_0_9> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_0_8> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_2_31> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_2_30> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_2_29> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_2_28> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_2_27> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_2_26> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_2_25> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_2_24> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_2_23> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_2_22> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_2_21> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_2_20> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_2_19> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_2_18> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_2_17> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_2_16> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_2_15> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_2_14> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_2_13> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_2_12> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_2_11> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_2_10> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_2_9> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainRegister/regFile_2_8> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainAlu/aluRes_31> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainAlu/aluRes_30> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainAlu/aluRes_29> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainAlu/aluRes_28> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainAlu/aluRes_27> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainAlu/aluRes_26> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainAlu/aluRes_25> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainAlu/aluRes_24> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainAlu/aluRes_23> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainAlu/aluRes_22> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainAlu/aluRes_21> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainAlu/aluRes_20> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainAlu/aluRes_19> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainAlu/aluRes_18> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainAlu/aluRes_17> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainAlu/aluRes_16> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainAlu/aluRes_15> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainAlu/aluRes_14> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainAlu/aluRes_13> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainAlu/aluRes_12> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainAlu/aluRes_11> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainAlu/aluRes_10> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainAlu/aluRes_9> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainAlu/aluRes_8> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/readData_31> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/readData_30> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/readData_29> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/readData_28> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/readData_27> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/readData_26> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/readData_25> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/readData_24> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/readData_23> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/readData_22> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/readData_21> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/readData_20> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/readData_19> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/readData_18> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/readData_17> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/readData_16> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/readData_15> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/readData_14> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/readData_13> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/readData_12> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/readData_11> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/readData_10> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/readData_9> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/readData_8> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_15_31> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_15_30> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_15_29> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_15_28> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_15_27> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_15_26> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_15_25> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_15_24> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_15_23> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_15_22> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_15_21> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_15_20> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_15_19> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_15_18> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_15_17> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_15_16> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_15_15> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_15_14> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_15_13> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_15_12> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_15_11> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_15_10> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_15_9> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_15_8> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_14_31> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_14_30> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_14_29> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_14_28> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_14_27> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_14_26> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_14_25> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_14_24> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_14_23> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_14_22> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_14_21> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_14_20> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_14_19> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_14_18> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_14_17> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_14_16> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_14_15> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_14_14> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_14_13> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_14_12> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_14_11> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_14_10> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_14_9> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_14_8> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_13_31> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_13_30> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_13_29> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_13_28> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_13_27> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_13_26> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_13_25> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_13_24> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_13_23> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_13_22> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_13_21> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_13_20> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_13_19> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_13_18> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_13_17> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_13_16> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_13_15> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_13_14> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_13_13> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_13_12> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_13_11> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_13_10> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_13_9> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_13_8> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_12_31> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_12_30> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_12_29> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_12_28> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_12_27> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_12_26> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_12_25> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_12_24> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_12_23> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_12_22> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_12_21> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_12_20> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_12_19> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_12_18> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_12_17> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_12_16> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_12_15> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_12_14> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_12_13> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_12_12> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_12_11> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_12_10> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_12_9> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_12_8> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_11_31> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_11_30> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_11_29> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_11_28> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_11_27> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_11_26> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_11_25> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_11_24> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_11_23> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_11_22> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_11_21> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_11_20> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_11_19> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_11_18> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_11_17> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_11_16> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_11_15> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_11_14> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_11_13> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_11_12> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_11_11> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_11_10> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_11_9> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_11_8> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_9_31> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_9_30> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_9_29> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_9_28> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_9_27> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_9_26> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_9_25> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_9_24> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_9_23> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_9_22> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_9_21> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_9_20> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_9_19> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_9_18> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_9_17> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_9_16> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_9_15> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_9_14> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_9_13> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_9_12> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_9_11> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_9_10> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_9_9> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_9_8> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_8_31> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_8_30> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_8_29> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_8_28> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_8_27> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_8_26> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_8_25> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_8_24> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_8_23> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_8_22> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_8_21> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_8_20> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_8_19> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_8_18> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_8_17> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_8_16> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_8_15> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_8_14> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_8_13> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_8_12> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_8_11> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_8_10> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_8_9> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_8_8> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_10_31> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_10_30> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_10_29> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_10_28> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_10_27> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_10_26> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_10_25> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_10_24> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_10_23> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_10_22> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_10_21> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_10_20> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_10_19> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_10_18> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_10_17> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_10_16> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_10_15> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_10_14> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_10_13> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_10_12> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_10_11> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_10_10> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_10_9> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_10_8> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_7_31> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_7_30> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_7_29> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_7_28> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_7_27> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_7_26> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_7_25> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_7_24> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_7_23> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_7_22> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_7_21> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_7_20> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_7_19> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_7_18> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_7_17> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_7_16> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_7_15> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_7_14> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_7_13> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_7_12> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_7_11> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_7_10> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_7_9> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_7_8> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_6_31> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_6_30> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_6_29> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_6_28> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_6_27> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_6_26> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_6_25> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_6_24> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_6_23> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_6_22> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_6_21> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_6_20> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_6_19> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_6_18> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_6_17> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_6_16> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_6_15> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_6_14> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_6_13> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_6_12> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_6_11> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_6_10> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_6_9> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_6_8> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_5_31> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_5_30> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_5_29> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_5_28> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_5_27> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_5_26> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_5_25> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_5_24> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_5_23> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_5_22> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_5_21> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_5_20> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_5_19> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_5_18> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_5_17> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_5_16> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_5_15> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_5_14> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_5_13> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_5_12> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_5_11> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_5_10> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_5_9> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_5_8> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_4_31> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_4_30> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_4_29> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_4_28> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_4_27> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_4_26> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_4_25> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_4_24> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_4_23> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_4_22> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_4_21> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_4_20> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_4_19> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_4_18> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_4_17> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_4_16> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_4_15> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_4_14> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_4_13> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_4_12> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_4_11> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_4_10> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_4_9> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_4_8> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_3_31> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_3_30> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_3_29> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_3_28> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_3_27> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_3_26> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_3_25> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_3_24> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_3_23> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_3_22> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_3_21> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_3_20> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_3_19> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_3_18> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_3_17> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_3_16> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_3_15> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_3_14> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_3_13> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_3_12> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_3_11> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_3_10> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_3_9> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_3_8> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_2_31> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_2_30> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_2_29> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_2_28> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_2_27> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_2_26> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_2_25> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_2_24> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_2_23> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_2_22> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_2_21> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_2_20> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_2_19> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_2_18> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_2_17> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_2_16> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_2_15> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_2_14> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_2_13> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_2_12> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_2_11> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_2_10> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_2_9> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_2_8> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_0_31> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_0_30> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_0_29> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_0_28> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_0_27> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_0_26> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_0_25> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_0_24> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_0_23> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_0_22> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_0_21> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_0_20> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_0_19> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_0_18> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_0_17> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_0_16> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_0_15> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_0_14> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_0_13> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_0_12> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_0_11> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_0_10> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_0_9> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_0_8> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_1_31> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_1_30> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_1_29> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_1_28> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_1_27> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_1_26> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_1_25> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_1_24> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_1_23> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_1_22> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_1_21> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_1_20> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_1_19> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_1_18> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_1_17> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_1_16> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_1_15> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_1_14> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_1_13> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_1_12> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_1_11> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_1_10> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_1_9> of sequential type is unconnected in block <Top>.
+WARNING:Xst:2677 - Node <mainDataMemory/memFile_1_8> of sequential type is unconnected in block <Top>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block Top, actual ratio is 4.
+FlipFlop PC_3 has been replicated 1 time(s)
+FlipFlop PC_4 has been replicated 1 time(s)
+FlipFlop PC_5 has been replicated 2 time(s)
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 228
+ Flip-Flops                                            : 228
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : Top.ngr
+Top Level Output File Name         : Top
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 13
+
+Cell Usage :
+# BELS                             : 467
+#      GND                         : 1
+#      INV                         : 2
+#      LUT1                        : 29
+#      LUT2                        : 17
+#      LUT3                        : 122
+#      LUT3_D                      : 4
+#      LUT4                        : 118
+#      LUT4_D                      : 2
+#      MUXCY                       : 43
+#      MUXF5                       : 57
+#      MUXF6                       : 16
+#      MUXF7                       : 8
+#      VCC                         : 1
+#      XORCY                       : 47
+# FlipFlops/Latches                : 246
+#      FD                          : 26
+#      FDR                         : 8
+#      FDRE_1                      : 148
+#      FDRS                        : 2
+#      FDSE_1                      : 44
+#      LD                          : 10
+#      LDC                         : 8
+# Clock Buffers                    : 2
+#      BUFG                        : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 12
+#      IBUF                        : 4
+#      OBUF                        : 8
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-4 
+
+ Number of Slices:                      212  out of   4656     4%  
+ Number of Slice Flip Flops:            246  out of   9312     2%  
+ Number of 4 input LUTs:                294  out of   9312     3%  
+ Number of IOs:                          13
+ Number of bonded IOBs:                  13  out of    232     5%  
+ Number of GCLKs:                         2  out of     24     8%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+------------------------------------------------------+-----------------------------------+-------+
+Clock Signal                                          | Clock buffer(FF name)             | Load  |
+------------------------------------------------------+-----------------------------------+-------+
+mainTimeDivider/clockOut1                             | BUFG                              | 202   |
+mainClock                                             | BUFGP                             | 26    |
+mainAlu/aluRes_not0001(mainAlu/aluRes_not00011:O)     | NONE(*)(mainAlu/aluRes_7)         | 8     |
+mainALuCtr/aluCtr_not0001(mainALuCtr/aluCtr_not0001:O)| NONE(*)(mainALuCtr/aluCtr_2)      | 2     |
+MEM_READ(mainCtr/memToReg1:O)                         | NONE(*)(mainDataMemory/readData_7)| 8     |
+------------------------------------------------------+-----------------------------------+-------+
+(*) These 3 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+SWITCH<3>                          | IBUF                   | 8     |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 13.858ns (Maximum Frequency: 72.160MHz)
+   Minimum input arrival time before clock: 14.222ns
+   Maximum output required time after clock: 10.668ns
+   Maximum combinational path delay: 11.736ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'mainTimeDivider/clockOut1'
+  Clock period: 13.858ns (frequency: 72.160MHz)
+  Total number of paths / destination ports: 7434 / 396
+-------------------------------------------------------------------------
+Delay:               6.929ns (Levels of Logic = 3)
+  Source:            PC_4 (FF)
+  Destination:       mainRegister/regFile_7_7 (FF)
+  Source Clock:      mainTimeDivider/clockOut1 rising
+  Destination Clock: mainTimeDivider/clockOut1 falling
+
+  Data Path: PC_4 to mainRegister/regFile_7_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRS:C->Q            18   0.591   1.072  PC_4 (PC_4)
+     LUT4_D:I3->O         17   0.704   1.055  LED<5>11 (INST<21>)
+     LUT4_D:I3->O          7   0.704   0.787  OUT1<0>1 (OUT1<0>)
+     LUT4:I1->O            8   0.704   0.757  mainRegister/regFile_7_not00011 (mainRegister/regFile_7_not0001)
+     FDSE_1:CE                 0.555          mainRegister/regFile_7_0
+    ----------------------------------------
+    Total                      6.929ns (3.258ns logic, 3.671ns route)
+                                       (47.0% logic, 53.0% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'mainClock'
+  Clock period: 4.764ns (frequency: 209.908MHz)
+  Total number of paths / destination ports: 326 / 26
+-------------------------------------------------------------------------
+Delay:               4.764ns (Levels of Logic = 25)
+  Source:            mainTimeDivider/buffer_1 (FF)
+  Destination:       mainTimeDivider/buffer_24 (FF)
+  Source Clock:      mainClock rising
+  Destination Clock: mainClock rising
+
+  Data Path: mainTimeDivider/buffer_1 to mainTimeDivider/buffer_24
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               1   0.591   0.595  mainTimeDivider/buffer_1 (mainTimeDivider/buffer_1)
+     LUT1:I0->O            1   0.704   0.000  mainTimeDivider/Mcount_buffer_cy<1>_rt (mainTimeDivider/Mcount_buffer_cy<1>_rt)
+     MUXCY:S->O            1   0.464   0.000  mainTimeDivider/Mcount_buffer_cy<1> (mainTimeDivider/Mcount_buffer_cy<1>)
+     MUXCY:CI->O           1   0.059   0.000  mainTimeDivider/Mcount_buffer_cy<2> (mainTimeDivider/Mcount_buffer_cy<2>)
+     MUXCY:CI->O           1   0.059   0.000  mainTimeDivider/Mcount_buffer_cy<3> (mainTimeDivider/Mcount_buffer_cy<3>)
+     MUXCY:CI->O           1   0.059   0.000  mainTimeDivider/Mcount_buffer_cy<4> (mainTimeDivider/Mcount_buffer_cy<4>)
+     MUXCY:CI->O           1   0.059   0.000  mainTimeDivider/Mcount_buffer_cy<5> (mainTimeDivider/Mcount_buffer_cy<5>)
+     MUXCY:CI->O           1   0.059   0.000  mainTimeDivider/Mcount_buffer_cy<6> (mainTimeDivider/Mcount_buffer_cy<6>)
+     MUXCY:CI->O           1   0.059   0.000  mainTimeDivider/Mcount_buffer_cy<7> (mainTimeDivider/Mcount_buffer_cy<7>)
+     MUXCY:CI->O           1   0.059   0.000  mainTimeDivider/Mcount_buffer_cy<8> (mainTimeDivider/Mcount_buffer_cy<8>)
+     MUXCY:CI->O           1   0.059   0.000  mainTimeDivider/Mcount_buffer_cy<9> (mainTimeDivider/Mcount_buffer_cy<9>)
+     MUXCY:CI->O           1   0.059   0.000  mainTimeDivider/Mcount_buffer_cy<10> (mainTimeDivider/Mcount_buffer_cy<10>)
+     MUXCY:CI->O           1   0.059   0.000  mainTimeDivider/Mcount_buffer_cy<11> (mainTimeDivider/Mcount_buffer_cy<11>)
+     MUXCY:CI->O           1   0.059   0.000  mainTimeDivider/Mcount_buffer_cy<12> (mainTimeDivider/Mcount_buffer_cy<12>)
+     MUXCY:CI->O           1   0.059   0.000  mainTimeDivider/Mcount_buffer_cy<13> (mainTimeDivider/Mcount_buffer_cy<13>)
+     MUXCY:CI->O           1   0.059   0.000  mainTimeDivider/Mcount_buffer_cy<14> (mainTimeDivider/Mcount_buffer_cy<14>)
+     MUXCY:CI->O           1   0.059   0.000  mainTimeDivider/Mcount_buffer_cy<15> (mainTimeDivider/Mcount_buffer_cy<15>)
+     MUXCY:CI->O           1   0.059   0.000  mainTimeDivider/Mcount_buffer_cy<16> (mainTimeDivider/Mcount_buffer_cy<16>)
+     MUXCY:CI->O           1   0.059   0.000  mainTimeDivider/Mcount_buffer_cy<17> (mainTimeDivider/Mcount_buffer_cy<17>)
+     MUXCY:CI->O           1   0.059   0.000  mainTimeDivider/Mcount_buffer_cy<18> (mainTimeDivider/Mcount_buffer_cy<18>)
+     MUXCY:CI->O           1   0.059   0.000  mainTimeDivider/Mcount_buffer_cy<19> (mainTimeDivider/Mcount_buffer_cy<19>)
+     MUXCY:CI->O           1   0.059   0.000  mainTimeDivider/Mcount_buffer_cy<20> (mainTimeDivider/Mcount_buffer_cy<20>)
+     MUXCY:CI->O           1   0.059   0.000  mainTimeDivider/Mcount_buffer_cy<21> (mainTimeDivider/Mcount_buffer_cy<21>)
+     MUXCY:CI->O           1   0.059   0.000  mainTimeDivider/Mcount_buffer_cy<22> (mainTimeDivider/Mcount_buffer_cy<22>)
+     MUXCY:CI->O           0   0.059   0.000  mainTimeDivider/Mcount_buffer_cy<23> (mainTimeDivider/Mcount_buffer_cy<23>)
+     XORCY:CI->O           1   0.804   0.000  mainTimeDivider/Mcount_buffer_xor<24> (Result<24>)
+     FD:D                      0.308          mainTimeDivider/buffer_24
+    ----------------------------------------
+    Total                      4.764ns (4.169ns logic, 0.595ns route)
+                                       (87.5% logic, 12.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'mainTimeDivider/clockOut1'
+  Total number of paths / destination ports: 2324 / 596
+-------------------------------------------------------------------------
+Offset:              8.165ns (Levels of Logic = 6)
+  Source:            SWITCH<3> (PAD)
+  Destination:       mainDataMemory/memFile_15_7 (FF)
+  Destination Clock: mainTimeDivider/clockOut1 falling
+
+  Data Path: SWITCH<3> to mainDataMemory/memFile_15_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           273   1.218   1.513  SWITCH_3_IBUF (SWITCH_3_IBUF)
+     LUT3:I0->O            2   0.704   0.482  OUT2<2>11_1 (OUT2<2>11)
+     LUT3_D:I2->O         15   0.704   1.052  mainInstMemory/inst<16>1_1 (mainInstMemory/inst<16>1)
+     LUT3:I2->O            1   0.704   0.455  mainRegister/mux61_62 (mainRegister/mux61_62)
+     LUT4:I2->O            1   0.704   0.000  mainRegister/readData2<7>1_G (N58)
+     MUXF5:I1->O          19   0.321   0.000  mainRegister/readData2<7>1 (READ_DATA2<7>)
+     FDRE_1:D                  0.308          mainDataMemory/memFile_1_7
+    ----------------------------------------
+    Total                      8.165ns (4.663ns logic, 3.502ns route)
+                                       (57.1% logic, 42.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'mainAlu/aluRes_not0001'
+  Total number of paths / destination ports: 1247 / 8
+-------------------------------------------------------------------------
+Offset:              14.222ns (Levels of Logic = 16)
+  Source:            SWITCH<3> (PAD)
+  Destination:       mainAlu/aluRes_7 (LATCH)
+  Destination Clock: mainAlu/aluRes_not0001 falling
+
+  Data Path: SWITCH<3> to mainAlu/aluRes_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           273   1.218   1.513  SWITCH_3_IBUF (SWITCH_3_IBUF)
+     LUT3:I0->O            2   0.704   0.482  OUT2<2>11_1 (OUT2<2>11)
+     LUT3_D:I2->O         15   0.704   1.052  mainInstMemory/inst<16>1_1 (mainInstMemory/inst<16>1)
+     LUT3:I2->O            1   0.704   0.455  mainRegister/mux54_62 (mainRegister/mux54_62)
+     LUT4:I2->O            1   0.704   0.000  mainRegister/readData2<2>1_G (N68)
+     MUXF5:I1->O          17   0.321   1.055  mainRegister/readData2<2>1 (READ_DATA2<2>)
+     LUT4:I3->O            3   0.704   0.610  OUT2<2>2 (OUT2<2>)
+     LUT2:I1->O            1   0.704   0.000  mainAlu/Madd_aluRes_addsub0000_lut<2> (mainAlu/Madd_aluRes_addsub0000_lut<2>)
+     MUXCY:S->O            1   0.464   0.000  mainAlu/Madd_aluRes_addsub0000_cy<2> (mainAlu/Madd_aluRes_addsub0000_cy<2>)
+     MUXCY:CI->O           1   0.059   0.000  mainAlu/Madd_aluRes_addsub0000_cy<3> (mainAlu/Madd_aluRes_addsub0000_cy<3>)
+     MUXCY:CI->O           1   0.059   0.000  mainAlu/Madd_aluRes_addsub0000_cy<4> (mainAlu/Madd_aluRes_addsub0000_cy<4>)
+     MUXCY:CI->O           1   0.059   0.000  mainAlu/Madd_aluRes_addsub0000_cy<5> (mainAlu/Madd_aluRes_addsub0000_cy<5>)
+     MUXCY:CI->O           0   0.059   0.000  mainAlu/Madd_aluRes_addsub0000_cy<6> (mainAlu/Madd_aluRes_addsub0000_cy<6>)
+     XORCY:CI->O           1   0.804   0.455  mainAlu/Madd_aluRes_addsub0000_xor<7> (mainAlu/aluRes_addsub0000<7>)
+     LUT4:I2->O            1   0.704   0.000  mainAlu/aluRes_mux0000<7>_G (N106)
+     MUXF5:I1->O           1   0.321   0.000  mainAlu/aluRes_mux0000<7> (mainAlu/aluRes_mux0000<7>)
+     LD:D                      0.308          mainAlu/aluRes_7
+    ----------------------------------------
+    Total                     14.222ns (8.600ns logic, 5.622ns route)
+                                       (60.5% logic, 39.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'mainALuCtr/aluCtr_not0001'
+  Total number of paths / destination ports: 11 / 2
+-------------------------------------------------------------------------
+Offset:              7.053ns (Levels of Logic = 5)
+  Source:            SWITCH<3> (PAD)
+  Destination:       mainALuCtr/aluCtr_2 (LATCH)
+  Destination Clock: mainALuCtr/aluCtr_not0001 falling
+
+  Data Path: SWITCH<3> to mainALuCtr/aluCtr_2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           273   1.218   1.513  SWITCH_3_IBUF (SWITCH_3_IBUF)
+     LUT4_D:I0->O         17   0.704   1.130  LED<5>11 (INST<21>)
+     LUT2:I1->O            2   0.704   0.451  LED<1>211 (INST<13>)
+     LUT4:I3->O            1   0.704   0.000  mainALuCtr/aluCtr_mux0000<2>11 (mainALuCtr/aluCtr_mux0000<2>1)
+     MUXF5:I0->O           1   0.321   0.000  mainALuCtr/aluCtr_mux0000<2>1_f5 (mainALuCtr/aluCtr_mux0000<2>)
+     LD:D                      0.308          mainALuCtr/aluCtr_2
+    ----------------------------------------
+    Total                      7.053ns (3.959ns logic, 3.094ns route)
+                                       (56.1% logic, 43.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'mainTimeDivider/clockOut1'
+  Total number of paths / destination ports: 52 / 8
+-------------------------------------------------------------------------
+Offset:              10.668ns (Levels of Logic = 6)
+  Source:            PC_4 (FF)
+  Destination:       LED<1> (PAD)
+  Source Clock:      mainTimeDivider/clockOut1 rising
+
+  Data Path: PC_4 to LED<1>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRS:C->Q            18   0.591   1.072  PC_4 (PC_4)
+     LUT4_D:I3->O         17   0.704   1.130  LED<5>11 (INST<21>)
+     LUT2:I1->O            2   0.704   0.451  LED<1>211 (INST<13>)
+     LUT4:I3->O            1   0.704   0.595  LED<1>70_SW0 (N73)
+     LUT4:I0->O            1   0.704   0.000  LED<1>70_G (N108)
+     MUXF5:I1->O           1   0.321   0.420  LED<1>70 (LED_1_OBUF)
+     OBUF:I->O                 3.272          LED_1_OBUF (LED<1>)
+    ----------------------------------------
+    Total                     10.668ns (7.000ns logic, 3.668ns route)
+                                       (65.6% logic, 34.4% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 109 / 8
+-------------------------------------------------------------------------
+Delay:               11.736ns (Levels of Logic = 7)
+  Source:            SWITCH<3> (PAD)
+  Destination:       LED<1> (PAD)
+
+  Data Path: SWITCH<3> to LED<1>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           273   1.218   1.513  SWITCH_3_IBUF (SWITCH_3_IBUF)
+     LUT4_D:I0->O         17   0.704   1.130  LED<5>11 (INST<21>)
+     LUT2:I1->O            2   0.704   0.451  LED<1>211 (INST<13>)
+     LUT4:I3->O            1   0.704   0.595  LED<1>70_SW0 (N73)
+     LUT4:I0->O            1   0.704   0.000  LED<1>70_G (N108)
+     MUXF5:I1->O           1   0.321   0.420  LED<1>70 (LED_1_OBUF)
+     OBUF:I->O                 3.272          LED_1_OBUF (LED<1>)
+    ----------------------------------------
+    Total                     11.736ns (7.627ns logic, 4.109ns route)
+                                       (65.0% logic, 35.0% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 13.00 secs
+Total CPU time to Xst completion: 13.34 secs
+ 
+--> 
+
+Total memory usage is 211836 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :  931 (   0 filtered)
+Number of infos    :   10 (   0 filtered)
+

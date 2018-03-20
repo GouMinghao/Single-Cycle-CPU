@@ -1,0 +1,36 @@
+Running: C:\Xilinx\13.4\ISE_DS\ISE\bin\nt\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o G:/Lab5/test_for_top_isim_beh.exe -prj G:/Lab5/test_for_top_beh.prj work.test_for_top work.glbl 
+ISim O.87xd (signature 0x2f00eba5)
+Number of CPUs detected in this system: 8
+Turning on mult-threading, number of parallel sub-compilation jobs: 16 
+Determining compilation order of HDL files
+Analyzing Verilog file "G:/Lab5/timedivider.v" into library work
+Analyzing Verilog file "G:/Lab5/singext.v" into library work
+Analyzing Verilog file "G:/Lab5/register.v" into library work
+Analyzing Verilog file "G:/Lab5/inst_memory.v" into library work
+Analyzing Verilog file "G:/Lab5/data_memory.v" into library work
+Analyzing Verilog file "G:/Lab5/Ctr.v" into library work
+Analyzing Verilog file "G:/Lab5/aluctr.v" into library work
+Analyzing Verilog file "G:/Lab5/alu.v" into library work
+Analyzing Verilog file "G:/Lab5/top.v" into library work
+Analyzing Verilog file "G:/Lab5/test_for_top.v" into library work
+Analyzing Verilog file "C:/Xilinx/13.4/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+Completed static elaboration
+Fuse Memory Usage: 100592 KB
+Fuse CPU Usage: 327 ms
+Compiling module timeDivider
+Compiling module Ctr
+Compiling module Alu
+Compiling module AluCtr
+Compiling module data_memory
+Compiling module register
+Compiling module signext
+Compiling module inst_memory
+Compiling module Top
+Compiling module test_for_top
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Compiled 11 Verilog Units
+Built simulation executable G:/Lab5/test_for_top_isim_beh.exe
+Fuse Memory Usage: 108256 KB
+Fuse CPU Usage: 389 ms
